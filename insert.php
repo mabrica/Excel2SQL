@@ -74,6 +74,9 @@ for ($i = 0; $i < $sheetCount; $i++) {
 }
 
 // ファイルを出力
+if (!file_exists('sqls')) {
+	mkdir('sqls', 0777);
+}
 foreach ($queries as $sheetName => $query) {
 	file_put_contents("./sqls/{$sheetName}.sql", $query);
 }
